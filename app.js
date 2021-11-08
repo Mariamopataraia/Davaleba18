@@ -162,3 +162,4 @@ function stopAutoSliding (){
 mouseMove.addEventListener('mouseenter', stopAutoSliding);
 mouseMove.addEventListener('mouseleave', startAutoSliding);
 
+// Task #3
