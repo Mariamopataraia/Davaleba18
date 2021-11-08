@@ -100,12 +100,10 @@ const startBtn = document.querySelector('#start-sliding');
 let activeIndex = 0;
 
 function renderSlider() {
-  slides.forEach((element, index) => {
-    element.style.transform = `translateX(${100 * (index - activeIndex % slidesLength)}%)`;
-  })
-}
-
-renderSlider();
+    slides.forEach((element, index) => {
+      element.style.transform = `translateX(${100 * (index - activeIndex % slidesLength)}%)`;
+    })
+  };
 
 function nextSlide() {
   if(activeIndex === (slidesLength - 1)){
@@ -115,7 +113,7 @@ function nextSlide() {
   }
 
   renderSlider();
-}queueMicrotask,
+};
 
 function prevSlide() {
   if(activeIndex === 0){
@@ -125,7 +123,8 @@ function prevSlide() {
   }
 
   renderSlider();
-}
+};
+renderSlider();
 
 nextButton.addEventListener('click', (e) => {
   nextSlide();
