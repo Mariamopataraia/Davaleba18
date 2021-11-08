@@ -105,56 +105,51 @@ function renderSlider() {
     })
   };
 
-function nextSlide() {
-  if(activeIndex === (slidesLength - 1)){
-    activeIndex = 0;
-  } else {
-    activeIndex = activeIndex + 1;
+  function nextSlide(){
+    if (activeIndex=== (slidesLength - 1)){
+        activeIndex = 0;
+    }else {
+        activeIndex = activeIndex + 1;
     }
-
-  renderSlider();
+    renderSlider();
 };
-
-function prevSlide() {
-  if(activeIndex === 0){
-    activeIndex = slidesLength - 1;
-  } else {
-    activeIndex = activeIndex - 1;
-  }
-
-  renderSlider();
+function prevSlide(){
+    if (activeIndex=== 0){
+        activeIndex = slidesLength - 1;
+    }else {
+        activeIndex = activeIndex - 1;
+    }
+    renderSlider();
 };
 renderSlider();
 
 nextButton.addEventListener('click', nextSlide);
-
 prevButton.addEventListener('click', prevSlide);
 
+// იგივე გადმოტანილი
 document.addEventListener('keydown', (e) => {
-//   console.log(e.code);
-  if(e.code === 'ArrowRight'){
+    // console.log(e.code);
+if(e.code === 'ArrowRight'){
     nextSlide();
-  }
-  if(e.code === 'ArrowLeft'){
+}
+if(e.code === 'ArrowLeft'){
     prevSlide();
-  }
+}
 });
-
+    
 // IntervalID
 
 let intervalId = null;
-
 function startAutoSliding() {
-  if(!intervalId){
+if(!intervalId){
     intervalId = setInterval(() => {
-      nextSlide();
+    nextSlide();
     }, 3000);
-  }
+}
 }
 
+// ავტოსლაიდინგის დამატება 
 const mouseMove = document.querySelector(".slide-area");
-
-
 function stopAutoSliding (){
     console.log(stopAutoSliding)
     if (startAutoSliding) {
@@ -162,5 +157,8 @@ function stopAutoSliding (){
         intervalId = null;
     }
 }
-mouseMove.addEventListener('click', stopAutoSliding);
-mouseMove.addEventListener('click', startAutoSliding);
+
+
+mouseMove.addEventListener('mouseenter', stopAutoSliding);
+mouseMove.addEventListener('mouseleave', startAutoSliding);
+
