@@ -126,9 +126,8 @@ function prevSlide() {
 };
 renderSlider();
 
-nextButton.addEventListener('click', (e) => {
-  nextSlide();
-});
+nextButton.addEventListener('click', nextSlide);
+
 prevButton.addEventListener('click', prevSlide);
 
 document.addEventListener('keydown', (e) => {
@@ -141,6 +140,8 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// IntervalID
+
 let intervalId = null;
 
 function startAutoSliding() {
@@ -151,9 +152,15 @@ function startAutoSliding() {
   }
 }
 
-function stopAutoSliding() {
-  clearInterval(intervalId);
-  intervalId = null;
+const mouseMove = document.querySelector(".slide-area");
+
+
+function stopAutoSliding (){
+    console.log(stopAutoSliding)
+    if (startAutoSliding) {
+        clearInterval(intervalId);
+        intervalId = null;
+    }
 }
-stopBtn.addEventListener('click', stopAutoSliding);
-startBtn.addEventListener('click', startAutoSliding);
+mouseMove.addEventListener('click', stopAutoSliding);
+mouseMove.addEventListener('click', startAutoSliding);
