@@ -110,7 +110,7 @@ function nextSlide() {
     activeIndex = 0;
   } else {
     activeIndex = activeIndex + 1;
-  }
+    }
 
   renderSlider();
 };
@@ -131,7 +131,7 @@ nextButton.addEventListener('click', nextSlide);
 prevButton.addEventListener('click', prevSlide);
 
 document.addEventListener('keydown', (e) => {
-  console.log(e.code);
+//   console.log(e.code);
   if(e.code === 'ArrowRight'){
     nextSlide();
   }
